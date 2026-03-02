@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface DropdownItem {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  items: DropdownItem[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<li class="group relative overflow-x-visible text-(--white) cursor-pointer hover:text-(--secondary-color)">
+  <div class="flex items-center gap-3">
+    <p class="leading-3.25">{title}</p>
+    <Icon name="fa6-solid:caret-down" class="text-xs" />
+  </div>
+
+  <ul
+    class="hidden opacity-0 transition-all absolute bg-(--primary-color) group-hover:block group-hover:opacity-100 group-hover:z-10"
+  >
+    {
+      items.map((item, index) => (
+        <>
+          <li>
+            <a href={item.href} class="px-4! py-3! block whitespace-nowrap">
+              {item.label}
+            </a>
+          </li>
+          {index < items.length - 1 && (
+            <hr class=" my-0 mx-3 border-(--secondary-color)" />
+          )}
+        </>
+      ))
+    }
+  </ul>
+</li>

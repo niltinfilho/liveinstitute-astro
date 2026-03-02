@@ -1,0 +1,47 @@
+---
+import BtnDefault from "../ui/BtnDefault.astro";
+import DropDown from "./Dropdown.astro";
+
+const consultasClinicas = [
+  { label: "Dra. Larissa Venturini", href: "/medicos/larissa" },
+  { label: "Dra. Tatiani Sabadini", href: "/medicos/tatiani" },
+  { label: "Dra. Renata Guerreiro", href: "/medicos/renata" },
+  { label: "Ver todas consultas", href: "/consultas" },
+];
+
+const tecnologias = [
+  { label: "CoolSculpting & Emculpt Neo", href: "/medicos/larissa" },
+  { label: "Emtone & Atria", href: "/medicos/tatiani" },
+  { label: "Megaderme", href: "/medicos/renata" },
+  { label: "Ver todas tecnologias", href: "/consultas" },
+];
+
+const tratamentos = [
+  { label: "Terapia Endovenosa", href: "/medicos/larissa" },
+  { label: "Harmonização Glútea", href: "/medicos/tatiani" },
+  { label: "Programa de Emagrecimento", href: "/medicos/renata" },
+  { label: "Abdômen de Sereia", href: "/medicos/renata" },
+  { label: "Ver todos tratamentos", href: "/consultas" },
+];
+---
+
+<nav id="nav-menu" class="container">
+  <ul id="nav-menu-list" class="flex items-center justify-between w-full uppercase text-sm">
+    <DropDown title="Consultas Clínicas" items={consultasClinicas} />
+    <DropDown title="Tecnologias" items={tecnologias} />
+    <DropDown title="Tratamentos" items={tratamentos} />
+    <li><a href="calendario.html">Produtos</a></li>
+    <li><a href="calendario.html">Live Spa</a></li>
+    <li><a href="calendario.html">Live Bronze</a></li>
+    <li><a href="calendario.html">Live Center Lab</a></li>
+    <li><a href="calendario.html">Nosso Blog</a></li>
+    <li>
+      <BtnDefault label="Entre em contato" />
+    </li>
+  </ul>
+  <div class="btn-menu-hamburger" onclick="openMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
