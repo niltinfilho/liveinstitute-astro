@@ -1,0 +1,205 @@
+---
+import liveLogo from "../../../public/id/logo-live-institute-jales.svg";
+import BtnDefault from "../ui/BtnDefault.astro";
+---
+
+<style>
+  footer {
+    background-color: #0f0f0f;
+
+    .cta-footer {
+      padding: 96px 0;
+      /* background: url("assets/images/banner-bar-baridade-footer.jpg") center
+        center no-repeat; */
+      background-size: cover;
+      text-align: center;
+
+      h2 {
+        font-size: 48px;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 16px;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: var(--white);
+        max-width: 670px;
+        margin: 0 auto;
+      }
+
+      a {
+        display: block;
+        margin: 40px auto 0;
+        width: fit-content;
+      }
+    }
+
+    .info-footer {
+      padding: 96px 0 40px;
+
+      .info-footer-top {
+        justify-content: space-between;
+        align-items: flex-start;
+
+        img {
+          width: 240px;
+        }
+
+        h2 {
+          color: var(--white);
+          font-size: 20px;
+          margin-bottom: 24px;
+        }
+
+        ul {
+          li,
+          a {
+            color: var(--white);
+            transition: all 0.2s;
+            padding: 8px 0;
+          }
+
+          a:hover {
+            color: var(--primary-color);
+          }
+        }
+      }
+
+      .info-footer-bottom {
+        justify-content: space-between;
+        margin-top: 80px;
+
+        p,
+        a {
+          color: var(--white);
+          transition: all 0.2s;
+          padding: 8px 0;
+        }
+
+        a:hover {
+          color: var(--primary-color);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1280px) {
+    footer {
+      .cta-footer {
+        padding: 64px 16px;
+
+        h2 {
+          font-size: 36px;
+        }
+      }
+
+      .info-footer {
+        padding: 64px 16px 40px;
+
+        .info-footer-top {
+          justify-content: space-between;
+          align-items: flex-start;
+
+          img {
+            width: 200px;
+          }
+
+          h2 {
+            font-size: 18px;
+          }
+        }
+
+        .info-footer-bottom {
+          margin-top: 64px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 720px) {
+    footer {
+      .cta-footer {
+        h2 {
+          font-size: 24px;
+        }
+
+        a {
+          margin: 24px auto 0;
+        }
+      }
+
+      .info-footer {
+        .info-footer-top {
+          gap: 40px;
+
+          img {
+            width: 180px;
+          }
+        }
+
+        .info-footer-bottom {
+          align-items: center;
+          text-align: center;
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+</style>
+
+<footer class="flex flex-col items-center spacing">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19416.439153948006!2d-50.53531483897074!3d-20.25758318710424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94982fabd474ee23%3A0x70c2a30c15da1b8c!2sLive%20Institute%20Jales!5e0!3m2!1spt-BR!2sbr!4v1772405810174!5m2!1spt-BR!2sbr"
+    width="600"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    class="w-7xl h-110 rounded-xl"></iframe>
+  <section class="cta-footer">
+    <h2>Viva a experiência Live Institute</h2>
+    <p>
+      Agende sua avaliação personalizada e descubra o tratamento ideal para
+      você. Dê o primeiro passo para elevar sua autoestima com segurança e
+      tecnologia.
+    </p>
+    <BtnDefault label="Fazer avaliação agora" />
+  </section>
+  <section class="info-footer container">
+    <div class="flex info-footer-top">
+      <img
+        src={liveLogo.src}
+        alt="Logo Live Institute - Jales/SP"
+        class="w-36 rounded-none! shadow-none!"
+      />
+      <div>
+        <h2>Informações de Contato</h2>
+        <ul>
+          <li>
+            Av. das Boas Noites, 123 <br />
+            Bairro Alto da Lua, São Paulo – SP
+          </li>
+          <li>(11) 99999-9999</li>
+          <li>@bar_baridade.sp</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Links Importantes</h2>
+        <ul>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="calendario.html">Calendário</a></li>
+          <li><a href="reserva.html">Fazer reserva</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex info-footer-bottom">
+      <p>&copy; 2025 Bar-Baridade. Todos os direitos reservados.</p>
+      <p>
+        <a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a>
+      </p>
+    </div>
+  </section>
+</footer>
