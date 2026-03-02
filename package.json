@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.17.1",
     "astro-icon": "^1.1.5",
+    "swiper": "^12.1.2",
     "tailwindcss": "^4.2.1"
   }
 }

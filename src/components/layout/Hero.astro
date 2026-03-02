@@ -1,0 +1,128 @@
+---
+import { getImage } from "astro:assets";
+import BtnDefault from "../ui/BtnDefault.astro";
+import "swiper/css/bundle";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/hero/*.{jpeg,jpg,png,webp}');
+
+const optimizedImages = await Promise.all(
+  Object.values(images).map(async (image) => {
+    const file = await image();
+    return await getImage({ src: file.default, format: 'webp', width: 1920 });
+  })
+);
+---
+
+<section id="hero-section">
+  <div class="swiper swiper-hero-section">
+      <div class="swiper-wrapper">
+        {optimizedImages.map((img) => (
+          <div class="swiper-slide relative">
+            <div 
+              class="w-full h-[calc(100vh - 222px)] bg-center bg-no-repeat bg-cover" 
+              style={`background-image: url(${img.src});`}
+            ></div>
+            <div class="absolute inset-0 opacity-93 bg-[radial-gradient(circle,#000000c3_30%,#00000085_100%)]"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  <div class="flex flex-col items-center gap-12 text-(--white) text-center z-10 absolute top-[24%] w-full">
+    <h1>
+      Centro de saúde, beleza e bem-estar <br />
+      para Jales e região
+    </h1>
+    <BtnDefault label="Conheça agora" />
+    <p class="text-lg">Rua Amalias - Residencial Alpha Jales, Jales - SP</p>
+  </div>
+</section>
+
+<style>
+  section#hero-section {
+    position: relative;
+
+    .swiper {
+      .swiper-slide {
+        div {
+          width: 100vw;
+          height: calc(100vh - 222px);
+
+          &.slider-hero-1 {
+            background: url("../images/fachada.jpg") center center no-repeat;
+            background-size: cover;
+          }
+          &.slider-hero-2 {
+            background: url("../images/recepcao.jpg") center center no-repeat;
+            background-size: cover;
+          }
+          &.slider-hero-3 {
+            background: url("../images/live-spa.jpg") center center no-repeat;
+            background-size: cover;
+          }
+          &.slider-hero-4 {
+            background: url("../images/live-spa-2.jpg") center center no-repeat;
+            background-size: cover;
+          }
+          &.slider-hero-5 {
+            background: url("../images/sacada.jpg") center center no-repeat;
+            background-size: cover;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: radial-gradient(
+              circle,
+              #000000c3 30%,
+              #00000085 100%
+            );
+            opacity: 0.93;
+          }
+        }
+      }
+    }
+
+    .slider-text {
+      position: absolute;
+      top: 24%;
+      width: 100%;
+      z-index: 3;
+      text-align: center;
+      flex-direction: column;
+      gap: 48px;
+      color: var(--white);
+
+      h1 {
+        font-weight: 200;
+        font-size: 60px;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      a {
+        padding: 16px 48px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  const swiper = new Swiper(".swiper-hero-section", {
+    spaceBetween: 0,
+    centeredSlides: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+  });
+</script>

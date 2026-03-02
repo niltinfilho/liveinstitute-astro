@@ -42,6 +42,10 @@ body {
   @apply py-24 px-0;
 }
 
+h1 {
+  @apply font-extralight text-6xl uppercase text-(--white) leading-20;
+}
+
 h2 {
   text-align: center;
   font-size: 48px;
